@@ -1,7 +1,7 @@
 ################################################################
 #
 #   Main Street
-#   CS146 19F Final ProjectProject
+#   CS146 19F Final Project
 #   Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong
 #
 ################################################################
