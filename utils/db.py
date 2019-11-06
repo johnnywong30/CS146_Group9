@@ -71,3 +71,32 @@ def verify_user(username, password):
     elif username == selectedVal[0] and password == selectedVal[1]:
         return True
     return False
+
+def add_profile(username, hobbies, email = "", socials = "", phone = ""):
+    '''Adds profile to database. email, socials, and phone are optional parameters.'''
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute('INSERT INTO profiles VALUES (?, ?)', (username, hobbies, email, socials, phone))
+
+    db.commit()
+    db.close()
+    return True
+
+def get_profile(username):
+    '''Returns dictionary of profile of user'''
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute('SELECT username, hobbies, email, socials, phone FROM profiles where username=?', (username,))
+
+    selectedVal = c.fetchone()
+    db.close()
+
+    profile = {}
+    profile['username'] = username
+    profile['hobbies'] = selectedVal[1]
+    profile['email'] = selectedVal[2]
+    profile['socials'] = selectedVal[3]
+    profile['phone'] = selectedVal[4]
+    return profile

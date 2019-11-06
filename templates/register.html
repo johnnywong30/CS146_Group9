@@ -6,16 +6,61 @@
    <!-- Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong -->
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="../static/register.css">
    <title>Main Street</title>
  </head>
  <body>
-  Register form for users to enter their
-  username
-  password
-  email (OPTIONAL)
+  <header>
+    <div>
+      <h1>Main Street</h1>
+    </div>
+  </header>
+  <div class="userform">
+    <form action="/auth" method="POST">
+      <h2>Register</h2>
+      <ul class="wrapper">
+        <h3>Account Info</h3>
+        <li class="form-row">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+        </li>
+        <li class="form-row">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </li>
+      </ul>
+      <ul class="wrapper">
+        <h3>Profile Info</h3>
+        <li class="form-row">
+          <label for="hobbies">Hobbies </label>
+          <input type="text" id="hobbies" name="hobbies" required>
+        </li>
+        <li class="form-row">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </li>
+      </ul>
+      <div class="formInput">
+        <h3>Account Info</h3>
+        <div class="account">
+          <input class="accountInput" type="text" name="username" placeholder="Username" required>
+          <input class="accountInput" type="password" name="password" placeholder="Password" required>
+        </div>
+        <h3>Profile Info</h3>
+        <div class="profile">
+          <input type="text" name="hobbies" placeholder="Hobbies" required>
+          <input type="email" name="email" placeholder="peanuts@nuts.com">
+          <input type="text" name="socials" placeholder="@barrykyla">
+          <input type="tel" name="phone" placeholder="8004206921">
+        </div>
+        <button type="submit" name="submit" value="Register">Register</button>
+        <a href="/">Already have an account?</a>
+      </div>
 
-
-
-
+    </form>
+  </div>
  </body>
+ <footer>
+   <p>&copy; Main Street</p>
+ </footer>
 </html>
