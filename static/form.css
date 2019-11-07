@@ -14,15 +14,7 @@ div h2{
   padding-top: 5px;
   font-weight: bolder;
 }
-a{
-  color: #d4f4dd;
-  padding: 10px 0px;
-}
 
-a:hover{
-  color: #565554;
-
-}
 
 footer{
   position: fixed;
