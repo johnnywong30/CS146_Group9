@@ -94,34 +94,3 @@ footer{
 .form button:hover, .form button:active, .form button:focus{
   background-color: #129895;
 }
-
-
-
-
-/*
-.userform{
-  background-color: #0496ff;
-  margin: 0px 25%;
-}
-.wrapper{
-  list-style-type: none;
-  padding: 2px;
-  border-radius: 3px;
-}
-.form-row{
-  display: flex;
-  justify-content: center;
-  padding: .5px;
-}
-
-.form-row label{
-  flex: .05;
-  justify-content: flex-start;
-  padding-right: 10px;
-}
-
-.form-row input{
-  flex: .25;
-} */
-
-.
