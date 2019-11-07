@@ -71,12 +71,12 @@ footer{
 main h2{
   text-align: center;
   padding-top: 10px;
+  position: sticky;
 }
 
-
-
-
-
+main h3{
+  text-align: center;
+}
 
 .suggestion-page{
   background-color: #0496ff;
@@ -173,6 +173,7 @@ a:hover{
   padding: 10px;
   flex-basis: auto;
   align-items:center;
+  min-height: 280px;
 }
 
 .card_content{
@@ -200,24 +201,80 @@ a:hover{
   font-weight: bolder;
 }
 
-
-
-/* .card{
-  background-color: #025a99;
-  padding: 5px 15px;
-  margin: 15px 15px;
-  border-radius: 10px;
+.hobbies{
   display: flex;
-  flex-direction: column;
-  overflow: auto;
-  color: #d4f4dd;
+  flex-wrap: wrap;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.card h3{
-  display: inline-block;
-  width: 150px;
-  height: auto;
-} */
+.hobbies_item{
+  flex: 1 0 auto;
+  border: 0;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: #6590a8;
+  color: #e5e5e5;
+  min-width: 100px;
+  text-align: center;
+}
+
+.hobbies a{
+  padding: 0;
+}
+
+.profile-page{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  background-color: #b2d2e4;
+  width: 40%;
+  min-width: 275px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 10px;
+  max-height: 730px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.profile-page h2{
+  color: #9999ff;
+}
+
+.profile-img{
+  margin: 0px auto 10px;
+  width: 200px;
+  height: 200px;
+  border: 0;
+  border-radius: 100px;
+}
+.profile-info{
+
+}
+
+.profile-contacts{
+  margin: auto;
+  margin-bottom: 10px;
+  width: 100%;
+  overflow: scroll;
+
+}
+
+.profile-contacts tr{
+  margin: 20px 5px;
+}
+
+.profile-contacts th{
+  text-align: left;
+  padding: 5px 5px;
+}
+
+.profile-contacts td{
+  padding-left: 20px;
+}
+
 
 /* Desktop view */
 @media only screen and (min-width: 999px){
@@ -225,6 +282,13 @@ a:hover{
 
 /* Tablet view */
 @media only screen and (max-width: 998px) and (min-width: 400px){
+  .profile-contacts tr{
+    font-size: 10pt;
+  }
+  .profile-contacts td{
+    padding-left: 0;
+  }
+
   footer{
     position: fixed;
   }
@@ -240,6 +304,15 @@ a:hover{
   .suggestion-page{
     margin-bottom: 5px;
   }
+
+  .profile-contacts tr{
+    font-size: 10pt;
+  }
+
+  .profile-contacts td{
+    padding-left: 0;
+  }
+
   footer{
     position: relative;
   }
