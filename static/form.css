@@ -25,11 +25,7 @@ a:hover{
 }
 
 footer{
-  position: absolute;
-  width: 95%;
-  bottom: 0;
-  color: #d4f4dd;
-  text-align: right;
+  position: fixed;
 }
 
 .form{
@@ -54,7 +50,7 @@ footer{
   background-color: #d4f4dd;
   width: 100%;
   border: 0;
-  border-radius: 15px;
+  border-radius: 10px;
   margin: 0 0 15px;
   padding: 10px;
   box-sizing: border-box;
@@ -67,6 +63,7 @@ footer{
   border-color: #d4f4dd;
   width: 100%;
   padding: 10px;
+  border: 0;
   border-radius: 15px;
   box-sizing: border-box;
   font-size: 14px;
@@ -86,6 +83,7 @@ footer{
   outline: 0;
   background-color: #17bebb;
   width: 100%;
+  border-radius: 10px;
   border: 0;
   padding: 10px;
   margin-bottom: 10px;

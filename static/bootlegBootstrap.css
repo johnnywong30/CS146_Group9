@@ -17,21 +17,101 @@ body{
 
 header{
   background-color: #565554;
-  text-align: center;
   font-weight: bold;
   padding: 15px 0px;
   border-radius: 15px;
   text-transform: uppercase;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+
 }
 
 header h1{
   color: #d4f4dd;
+  display: inline-block;
+  line-height: 28px;
+  margin: 0;
+
+
+}
+
+header a{
+  display: inline
+  line-height: 28px;
+  color: #17bebb;
+  text-align: right;
+  text-decoration: none;
+  position: absolute;
+  top: 10;
+  right: 0;
+  padding-right: 40px;
+}
+
+header a:hover{
+  color: #0d7270;
+}
+
+#profile{
+  right: 200px;
+  /* padding-left: 50px; */
+}
+
+footer{
+  position: relative;
+  bottom: 0;
+  right: 0;
+  padding-right: 10px;
+  color: #d4f4dd;
+  text-align: right;
+}
+
+main h2{
+  text-align: center;
 }
 
 .suggestion-page{
   background-color: #0496ff;
-  width: 50%;
+  width: 40%;
+  min-width: 250px;
   height: auto;
+  margin: 20px;
+  margin-bottom: 50px;
+  padding: 8px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.card{
+  background-color: #025a99;
+  padding: 5px 15px;
+  margin: 15px 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  color: #d4f4dd;
+}
+
+
+@media screen and (max-width: 898px){
+  header{
+    height: 60px;
+  }
+
+  header a{
+    top: 60px;
+  }
+
+  #profile{
+    right: 100px;
+  }
+
+  .suggestion-page{
+    margin-bottom: 100px;
+  }
+
 }
 
 
