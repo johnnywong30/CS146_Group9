@@ -13,7 +13,7 @@
 
 body{
   background-color: #006ba6;
-  font-family: 'Verdana', 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Slab', 'Verdana', 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 header{
@@ -38,7 +38,7 @@ header h1{
 
 }
 
-header a{
+.navlink{
   display: inline
   line-height: 28px;
   color: #17bebb;
@@ -50,7 +50,7 @@ header a{
   padding-right: 20px;
 }
 
-header a:hover{
+.navlink:hover{
   color: #0d7270;
 }
 
@@ -83,7 +83,7 @@ main h3{
   width: 80%;
   height: auto;
   max-height: 700px;
-  margin: auto;
+  margin: 20px auto auto;
   margin-bottom: 50px;
   border-radius: 5px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -325,7 +325,7 @@ a:hover{
   }
 
   header a{
-    top: 60px;
+    top: 35px;
     margin-right: 20px;
   }
 
