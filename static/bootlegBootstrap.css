@@ -211,7 +211,7 @@ a:hover{
 }
 
 .hobbies_item{
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   border: 0;
   border-radius: 10px;
   margin: 5px;
@@ -223,6 +223,7 @@ a:hover{
 
 .hobbies a{
   padding: 0;
+  flex:1 1 auto;
 }
 
 .hobbies_list{
