@@ -225,6 +225,23 @@ a:hover{
   padding: 0;
 }
 
+.hobbies_list{
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  flex-flow: row;
+  flex: 1 1 auto;
+  align-items: flex-start;
+  padding: 10px;
+}
+.hobbies_list li{
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+
 .profile-page{
   display: flex;
   flex-direction: column;
