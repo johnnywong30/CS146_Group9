@@ -6,13 +6,25 @@
    <!-- Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong -->
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <title>Main Street</title>
+   <link rel="stylesheet" href="../static/form.css">
+   <link rel="stylesheet" href="../static/bootlegBootstrap.css">
+   <title>🤡 Main Street</title>
  </head>
  <body>
-  BASIC LOGIN FORM THAT LOOKS NICE :)))
-  
-
-
-
+  <header>
+    <h1>Main Street</h1>
+  </header>
+  <main class="form">
+    <h3>Login</h3>
+    <form class="register-form" action="/auth" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" name="submit" value="Login">Login</button>
+      <a href="register.html">Don't have an account?</a>
+    </form>
+  </main>
  </body>
+ <footer>
+   <p>&copy; Main Street &mdash; Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong</p>
+ </footer>
 </html>

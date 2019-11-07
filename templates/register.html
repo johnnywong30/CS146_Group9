@@ -6,61 +6,34 @@
    <!-- Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong -->
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <link rel="stylesheet" href="../static/register.css">
-   <title>Main Street</title>
+   <link rel="stylesheet" href="../static/form.css">
+   <link rel="stylesheet" href="../static/bootlegBootstrap.css">
+   <title>🤡 Main Street</title>
  </head>
  <body>
-  <header>
-    <div>
-      <h1>Main Street</h1>
-    </div>
-  </header>
-  <div class="userform">
-    <form action="/auth" method="POST">
-      <h2>Register</h2>
-      <ul class="wrapper">
-        <h3>Account Info</h3>
-        <li class="form-row">
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" required>
-        </li>
-        <li class="form-row">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required>
-        </li>
-      </ul>
-      <ul class="wrapper">
-        <h3>Profile Info</h3>
-        <li class="form-row">
-          <label for="hobbies">Hobbies </label>
-          <input type="text" id="hobbies" name="hobbies" required>
-        </li>
-        <li class="form-row">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required>
-        </li>
-      </ul>
-      <div class="formInput">
-        <h3>Account Info</h3>
-        <div class="account">
-          <input class="accountInput" type="text" name="username" placeholder="Username" required>
-          <input class="accountInput" type="password" name="password" placeholder="Password" required>
-        </div>
-        <h3>Profile Info</h3>
-        <div class="profile">
-          <input type="text" name="hobbies" placeholder="Hobbies" required>
-          <input type="email" name="email" placeholder="peanuts@nuts.com">
-          <input type="text" name="socials" placeholder="@barrykyla">
-          <input type="tel" name="phone" placeholder="8004206921">
-        </div>
-        <button type="submit" name="submit" value="Register">Register</button>
-        <a href="/">Already have an account?</a>
-      </div>
-
+   <header>
+     <h1>Main Street</h1>
+   </header>
+  <div class="form">
+    <h3>Register</h3>
+    <form class="register-form" action="/auth" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <h4>Profile Info</h4>
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" placeholder="peanuts@nuts.com">
+      <label for="socials">Social Handles</label>
+      <input id="socials" type="text" name="socials" placeholder="@bobbybob2">
+      <label for="phone">Phone Number</label>
+      <input id="phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"name="phone" placeholder="800-420-6921">
+      <label for="hobbies">Hobbies</label>
+      <textarea name="hobbies" required></textarea>
+      <button type="submit" name="submit" value="Register">Register</button>
+      <a href="index.html">Already have an account?</a>
     </form>
   </div>
  </body>
  <footer>
-   <p>&copy; Main Street</p>
+   <p>&copy; Main Street &mdash; Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong</p>
  </footer>
 </html>

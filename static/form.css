@@ -1,0 +1,129 @@
+/*
+  Main Street
+  CS146 19F Final Project
+  Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong
+*/
+
+div h2, h3, h4{
+  text-align: center;
+  color: #d4f4dd;
+  font-weight: bolder;
+}
+
+div h2{
+  padding-top: 5px;
+  font-weight: bolder;
+}
+a{
+  color: #d4f4dd;
+  padding: 10px 0px;
+}
+
+a:hover{
+  color: #565554;
+
+}
+
+footer{
+  position: absolute;
+  width: 95%;
+  bottom: 0;
+  color: #d4f4dd;
+  text-align: right;
+}
+
+.form{
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  background-color: #0496ff;
+  max-width: 360px;
+  margin-top: 30px;
+  padding: 30px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form h4{
+  font-size: 16px;
+}
+
+.form input{
+  outline: 0;
+  background-color: #d4f4dd;
+  width: 100%;
+  border: 0;
+  border-radius: 15px;
+  margin: 0 0 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form textarea{
+  outline: 0;
+  background-color: #d4f4dd;
+  border-color: #d4f4dd;
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  resize: vertical;
+  margin: 0 0 15px;
+  max-height: 100px;
+  min-height: 50px;
+}
+
+.form label{
+  color: #d4f4dd;
+  font-weight: bolder;
+}
+
+.form button{
+  text-transform: uppercase;
+  outline: 0;
+  background-color: #17bebb;
+  width: 100%;
+  border: 0;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #d4f4dd;
+  font-size: 14px;
+  cursor: pointer;
+}
+.form button:hover, .form button:active, .form button:focus{
+  background-color: #129895;
+}
+
+
+
+
+/*
+.userform{
+  background-color: #0496ff;
+  margin: 0px 25%;
+}
+.wrapper{
+  list-style-type: none;
+  padding: 2px;
+  border-radius: 3px;
+}
+.form-row{
+  display: flex;
+  justify-content: center;
+  padding: .5px;
+}
+
+.form-row label{
+  flex: .05;
+  justify-content: flex-start;
+  padding-right: 10px;
+}
+
+.form-row input{
+  flex: .25;
+} */
+
+.
