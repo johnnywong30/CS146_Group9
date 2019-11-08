@@ -285,11 +285,12 @@ a:hover{
 }
 
 .profile-contacts th{
-  text-align: left;
+  text-align: center;
   padding: 5px 5px;
 }
 
 .profile-contacts td{
+  text-align: center;
   padding-left: 20px;
 }
 
@@ -316,7 +317,6 @@ a:hover{
 @media only screen and (max-width: 399px){
   .card{
     flex: 1 1 calc(25% - 1em);
-    border: 2px solid black;
   }
 
   .suggestion-page{
