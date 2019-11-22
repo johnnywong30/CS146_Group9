@@ -13,9 +13,15 @@
  </head>
  <body>
    <header>
-     <a href="home.html"><h1>Main Street</h1></a>
+     <a href="/"><h1>Main Street</h1></a>
    </header>
-  <div class="form">
+  <main id="form" class="form">
+    {% set msgs = get_flashed_messages() %}
+    {% for msg in msgs %}
+      <div id="flash" class="alert">
+        {{msg}}
+      </div>
+    {% endfor %}
     <h3>Register</h3>
     <form class="register-form" action="/auth" method="POST">
       <input type="text" name="username" placeholder="Username" required>
@@ -28,11 +34,11 @@
       <label for="phone">Phone Number</label>
       <input id="phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" placeholder="800-420-6921">
       <label for="hobbies">Hobbies</label>
-      <textarea id="hobbies" name="hobbies" placeholder="Running, Frisbee, Sleep, Code, Grade..." required></textarea>
+      <input id="hobbies" name="hobbies" placeholder="Running, Frisbee, Sleep, Code, Grade..." required>
       <button type="submit" name="submit" value="Register">Register</button>
-      <a href="index.html">Already have an account?</a>
+      <a href="/">Already have an account?</a>
     </form>
-  </div>
+  </main>
   <footer>
     <p>&copy; Main Street &mdash; Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong</p>
   </footer>

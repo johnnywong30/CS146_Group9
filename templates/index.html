@@ -13,20 +13,27 @@
  </head>
  <body>
   <header>
-    <a href="home.html"><h1>Main Street</h1></a>
-    <a class="navlink" href="home.html">Preview Main Street</a>
+    <a href="/"><h1>Main Street</h1></a>
   </header>
-  <main class="form">
+
+  <main id="form" class="form">
+    {% set msgs = get_flashed_messages() %}
+    {% for msg in msgs %}
+      <div id="flash" class="alert">
+        {{msg}}
+      </div>
+    {% endfor %}
     <h3>Login</h3>
     <form class="register-form" action="/auth" method="POST">
       <input type="text" name="username" placeholder="Username" required>
       <input type="password" name="password" placeholder="Password" required>
       <button type="submit" name="submit" value="Login">Login</button>
-      <a href="register.html">Don't have an account?</a>
+      <a href="/register">Don't have an account?</a>
     </form>
   </main>
   <footer>
     <p>&copy; Main Street &mdash; Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong</p>
   </footer>
+  <script src="../static/street.js"></script>
  </body>
 </html>

@@ -7,7 +7,7 @@
 ################################################################
 import sqlite3
 
-DB_FILE = "../data/street.db"
+DB_FILE = "data/street.db"
 
 def create_db():
     '''Creates tables for DB_FILE'''
@@ -77,7 +77,12 @@ def add_profile(username, hobbies, email = "", socials = "", phone = ""):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute('INSERT INTO profiles VALUES (?, ?)', (username, hobbies, email, socials, phone))
+    print(username)
+    print(hobbies)
+    print(email)
+    print(socials)
+    print(phone)
+    c.execute('INSERT INTO profiles VALUES (?, ?, ?, ?, ?)', (username, hobbies, email, socials, phone))
 
     db.commit()
     db.close()

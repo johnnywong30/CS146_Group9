@@ -15,40 +15,37 @@
   Once we get JS done, default texts in this template should be replaced by the current user or the person's linked profile.
   Includes the person's username, full name (optional), hobbies (TEXT), email (optional TEXT), socials (optional TEXT), and phone (optional TEXT). -->
   <header>
-    <a href="home.html"><h1>Main Street</h1></a>
-    <a class="navlink" id="profile" href="profile.html">Profile</a>
-    <a class="navlink" href="index.html">Logout</a>
+    <a href="/"><h1>Main Street</h1></a>
+    <a class="navlink" id="profile" href="/profile">Profile</a>
+    <a class="navlink" href="/logout">Logout</a>
   </header>
   <main class="profile-page">
-    <a href="profile.html"><h2>phill213</h2></a>
+    <a href="/profile"><h2>{{username}}</h2></a>
     <img class="profile-img" src="../static/blank-profile.png" alt="We don't have profile pictures yet!">
     <div class="profile-info">
       <table class="profile-contacts">
           <tr>
             <th>Email</th>
-            <td>phill213@stevens.edu</td>
+            <td>{{email}}</td>
           </tr>
           <tr>
             <th>Phone Number</th>
-            <td>800-555-6667</td>
+            <td>{{phone}}</td>
           </tr>
           <tr>
             <th>Instagram</th>
-            <td>@phillgraffix</td>
+            <td>{{socials}}</td>
           </tr>
       </table>
       <div>
         <h3>Hobbies</h3>
         <ul class="hobbies_list">
-          <li>
-            Frisbee
-          </li>
-          <li>
-            Sleep
-          </li>
-          <li>
-            Code
-          </li>
+          {% set hobbies = hobbyList %}
+          {% for hobby in hobbies %}
+            <li>
+              {{hobby}}
+            </li>
+          {% endfor %}
         </ul>
       </div>
     </div>

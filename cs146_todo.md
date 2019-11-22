@@ -5,9 +5,10 @@
 - Form Data Validation; 25 points
 
 ## What I need to Do
-- [ ] JavaScript to switch between login/register (can delegate to someone)
 - [ ] JavaScript to validate inputs before submission (can do half of the Ajax)
 - [ ] JavaScript to add new form inputs for each different social media (should delegate...)
 - [ ] JavaScript to remove a form input (should delegate...)
+- [x] JavaScript to remove flashed messages after 3 seconds
 - [ ] Flask/Jinja to retrieve potential friends
 - [ ] Database methods to edit profile when needed
+- [x] Figure out how to store socials -> Delimit each by semi-colon and commas, (Platform,Handle;Platform,Handle;...)
