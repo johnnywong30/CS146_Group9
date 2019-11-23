@@ -31,6 +31,8 @@ footer{
   text-align: center;
   border-radius: 15px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  color: #d4f4dd;
+  font-weight: bolder;
 }
 
 .form h4{
@@ -77,6 +79,7 @@ select{
   padding: 5px 50px 5px 10px;
   text-align: left;
   margin-right: 10px;
+  font-weight: lighter;
 
   background-image:
     linear-gradient(45deg, transparent 50%, gray 50%),
