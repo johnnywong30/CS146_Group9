@@ -4,6 +4,8 @@
   Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong
 */
 
+let username = document.getElementById("user").innerText;
+
 // AJAX retrieves socials
 let retrieveSocials = function(){
   let contacts = document.getElementById("profile-contacts")
@@ -32,7 +34,7 @@ let retrieveSocials = function(){
             }
         }
     };
-  xhttp.open("GET", "/getSocials", true);
+  xhttp.open("GET", "/getSocials?user=" + username, true);
   xhttp.send();
 }
 
@@ -53,7 +55,7 @@ let retrieveHobbies = function(){
             }
         }
     };
-  xhttp.open("GET", "/getHobbies", true);
+  xhttp.open("GET", "/getHobbies?user=" + username, true);
   xhttp.send();
 }
 

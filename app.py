@@ -96,12 +96,14 @@ def profile():
 
 @app.route("/getSocials")
 def getSocials():
-    socials = db.get_profile(session["username"])["socials"]
+    username = request.args["user"]
+    socials = db.get_profile(username)["socials"]
     return socials
 
 @app.route("/getHobbies")
 def getHobbies():
-    hobbies = db.get_profile(session["username"])["hobbies"]
+    username = request.args["user"]
+    hobbies = db.get_profile(username)["hobbies"]
     return hobbies
 
 
