@@ -61,16 +61,19 @@ def auth():
         elif len(password.strip()) == 0 or ' ' in password:
             flash("Invalid password!")
             return redirect(url_for("register"))
-        hobbies = request.form["hobbies"]
-        email, socials, phone = request.form["email"].strip(), request.form.getlist("socials"), request.form["phone"].strip()
-        socials = list(map(lambda str: str.strip(), socials))
+        hobbies = list(map(lambda hobby: hobby.strip(), request.form.getlist("hobbies")))
+        media = request.form.getlist("platform")
+        handles = list(map(lambda handle: handle.strip(), request.form.getlist("socials")))
+        email, phone = request.form["email"].strip(), request.form["phone"].strip()
+        strOfHobbies = ""
+        for hobby in hobbies:
+            strOfHobbies += hobby + ","
+        strOfHobbies = strOfHobbies[:len(strOfHobbies)-1] # exclude last comma
         strOfSocials = ""
-        for handle in socials:
-            strOfSocials += handle
-        print("Email:", email)
-        print("Socials:", strOfSocials)
-        print("Phone:", phone)
-        db.add_profile(username, hobbies, email, strOfSocials, phone)
+        for i in range(len(handles)):
+            strOfSocials += media[i] + ":"
+            strOfSocials += handles[i] + ","
+        db.add_profile(username, strOfHobbies, email, strOfSocials, phone)
         db.register_user(username, password)
         flash("{} has been registered".format(username))
     return redirect(url_for("login"))
@@ -85,11 +88,22 @@ def profile():
     print(profileInfo)
     username = session["username"]
     hobbies = [profileInfo["hobbies"]]
-    email = profileInfo["email"]
+    email = profileInfo["email"] if profileInfo["email"] != "" else "N/A 🥺"
     socials = profileInfo["socials"]
-    phone = profileInfo["phone"]
+    phone = profileInfo["phone"] if profileInfo["phone"] != "" else "N/A 🥺"
 
-    return render_template("profile.html", username=username, hobbyList=hobbies, email=email, socials=socials, phone=phone)
+    return render_template("profile.html", username=username, email=email, socials=socials, phone=phone)
+
+@app.route("/getSocials")
+def getSocials():
+    socials = db.get_profile(session["username"])["socials"]
+    return socials
+
+@app.route("/getHobbies")
+def getHobbies():
+    hobbies = db.get_profile(session["username"])["hobbies"]
+    return hobbies
+
 
 @app.route("/home")
 def home():

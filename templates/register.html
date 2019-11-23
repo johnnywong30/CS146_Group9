@@ -29,12 +29,23 @@
       <h4>Profile Info</h4>
       <label for="email">Email</label>
       <input id="email" type="email" name="email" placeholder="peanuts@nuts.com">
-      <label for="socials">Social Handles</label>
-      <input id="socials" type="text" name="socials" placeholder="@bobbybob2">
+
+      <label for="social-platform" class="social-label">Social Handles</label>
+      <button type="button" class="adder" id="socialAdder">➕</button>
+
+      <div id="social-container">
+
+      </div>
+
       <label for="phone">Phone Number</label>
       <input id="phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" placeholder="800-420-6921">
       <label for="hobbies">Hobbies</label>
-      <input id="hobbies" name="hobbies" placeholder="Running, Frisbee, Sleep, Code, Grade..." required>
+      <button type="button" class="adder" id="hobbyAdder">➕</button>
+
+      <div id="hobby-container">
+
+      </div>
+
       <button type="submit" name="submit" value="Register">Register</button>
       <a href="/">Already have an account?</a>
     </form>
@@ -42,5 +53,6 @@
   <footer>
     <p>&copy; Main Street &mdash; Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong</p>
   </footer>
+  <script src="../static/form.js"></script>
  </body>
 </html>

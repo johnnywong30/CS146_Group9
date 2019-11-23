@@ -23,7 +23,7 @@
     <a href="/profile"><h2>{{username}}</h2></a>
     <img class="profile-img" src="../static/blank-profile.png" alt="We don't have profile pictures yet!">
     <div class="profile-info">
-      <table class="profile-contacts">
+      <table id="profile-contacts" class="profile-contacts">
           <tr>
             <th>Email</th>
             <td>{{email}}</td>
@@ -32,20 +32,10 @@
             <th>Phone Number</th>
             <td>{{phone}}</td>
           </tr>
-          <tr>
-            <th>Instagram</th>
-            <td>{{socials}}</td>
-          </tr>
       </table>
       <div>
         <h3>Hobbies</h3>
-        <ul class="hobbies_list">
-          {% set hobbies = hobbyList %}
-          {% for hobby in hobbies %}
-            <li>
-              {{hobby}}
-            </li>
-          {% endfor %}
+        <ul id="hobby-list" class="hobbies_list">
         </ul>
       </div>
     </div>
@@ -53,5 +43,6 @@
   <footer>
     <p>&copy; Main Street &mdash; Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong</p>
   </footer>
+  <script src="../static/profiles.js"></script>
 </body>
 </html>

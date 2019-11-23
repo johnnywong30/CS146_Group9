@@ -37,6 +37,83 @@ footer{
   font-size: 16px;
 }
 
+/*
+  #006ba6
+  #0496ff
+  #17bebb
+  #d4f4dd
+  #d62246
+*/
+
+select{
+  /* styling */
+  background-color: white;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.better-select{
+  position: relative;
+  margin-bottom: 5px;
+  display: inline;
+  clear: left;
+  background-color: #d4f4dd;
+  color: grey;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px 50px 5px 10px;
+  text-align: left;
+  margin-right: 10px;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  display: inline;
+}
+.better-select:focus{
+
+  background-image:
+    linear-gradient(45deg, gray 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, gray 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: gray;
+  border: 0;
+  outline: 0;
+}
+
+
 .form input{
   outline: 0;
   background-color: #d4f4dd;
@@ -48,6 +125,22 @@ footer{
   box-sizing: border-box;
   font-size: 14px;
 }
+
+.socials input{
+  outline: 0;
+  background-color: #d4f4dd;
+  width: 30%;
+  border: 0;
+  border-radius: 10px;
+  margin: 0 0 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  display: inline;
+}
+
+
+
 
 .form textarea{
   outline: 0;
@@ -85,4 +178,34 @@ footer{
 }
 .form button:hover, .form button:active, .form button:focus{
   background-color: #129895;
+}
+
+.form .adder{
+  width: 35px;
+  background-color: #d4f4dd;
+  outline: 0;
+}
+.form .adder:hover, .form .adder:active, .form .adder:focus {
+  background-color: #bedbc6;
+}
+
+.form .remover{
+  width: 11%;
+  margin-left: 10px;
+  text-align: center;
+  background-color: #ffc0cb;
+  outline: 0;
+  display: inline;
+}
+
+.form .remover:hover, .form .remover:active, .form .remover:focus {
+  background-color: #e5acb6;
+}
+
+.social-platform{
+  display: inline-block;
+}
+
+.form .hobby{
+  width: 80%;
 }
