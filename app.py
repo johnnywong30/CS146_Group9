@@ -14,7 +14,7 @@ from utils import db
 
 #-----------instantiate Flask Object-----------
 app = Flask(__name__)
-# run_with_ngrok(app)
+run_with_ngrok(app)
 app.secret_key = os.urandom(32)
 
 DB_FILE = "data/street.db"
