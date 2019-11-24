@@ -105,3 +105,14 @@ def get_profile(username):
     profile['socials'] = selectedVal[3]
     profile['phone'] = selectedVal[4]
     return profile
+
+def find_friends(username, hobby):
+    '''Returns a profile that contains an instance of <hobby>'''
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    query = '%' + hobby + '%'   # check if hobby is anywhere in the hobbies string on lookup
+    c.execute('SELECT username, hobbies, email, socials, phone FROM profiles where hobbies LIKE ? AND username != ?', (query, username,))
+    selectedVal = c.fetchall()
+    db.close()
+    return selectedVal

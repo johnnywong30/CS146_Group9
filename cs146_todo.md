@@ -1,8 +1,8 @@
 # Final Deliverable
-- At least one form (8 points each for each unique input (not including reset/submit buttons)) up to 24 points
-- At least one event listener; 26 points
-- Dynamically manipulate DOM; 25 points
-- Form Data Validation; 25 points
+- [ ]At least one form (8 points each for each unique input (not including reset/submit buttons)) up to 24 points
+- [x] At least one event listener; 26 points
+- [x] Dynamically manipulate DOM; 25 points
+- [x] Form Data Validation; 25 points
 
 ## What I need to Do
 - [ ] JavaScript to validate inputs before submission (can do half of the Ajax)

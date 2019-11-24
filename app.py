@@ -5,14 +5,16 @@
 #   Kyla Barry, Julie (Min Jee) Cheon, Daniel Claro, Johnny Wong
 #
 ################################################################
-import os
+import os, json
 
 from flask import Flask, render_template, redirect, url_for, session, request, flash, get_flashed_messages
+from flask_ngrok import run_with_ngrok
 
 from utils import db
 
 #-----------instantiate Flask Object-----------
 app = Flask(__name__)
+# run_with_ngrok(app)
 app.secret_key = os.urandom(32)
 
 DB_FILE = "data/street.db"
@@ -49,7 +51,6 @@ def auth():
         # user not found at all
         else:
             flash("Incorrect credentials!")
-            print('owo')
     # Handle Register request
     else:
         if db.find_user(username):
@@ -85,23 +86,35 @@ def profile():
     if "username" not in session:
         return redirect(url_for("login"))
     profileInfo = db.get_profile(session["username"])
-    print(profileInfo)
     username = session["username"]
-    hobbies = [profileInfo["hobbies"]]
     email = profileInfo["email"] if profileInfo["email"] != "" else "N/A 🥺"
-    socials = profileInfo["socials"]
     phone = profileInfo["phone"] if profileInfo["phone"] != "" else "N/A 🥺"
 
-    return render_template("profile.html", username=username, email=email, socials=socials, phone=phone)
+    return render_template("profile.html", username=username, email=email, phone=phone)
+
+@app.route("/friendProfile")
+def friendProfile():
+    if "username" not in session:
+        return redirect(url_for("login"))
+    username = request.args["username"]
+    profileInfo = db.get_profile(username)
+    email = profileInfo["email"] if profileInfo["email"] != "" else "N/A 🥺"
+    phone = profileInfo["phone"] if profileInfo["phone"] != "" else "N/A 🥺"
+    return render_template("profile.html", username=username, email=email, phone=phone)
+
 
 @app.route("/getSocials")
 def getSocials():
+    if "username" not in session:
+        return redirect(url_for("login"))
     username = request.args["user"]
     socials = db.get_profile(username)["socials"]
     return socials
 
 @app.route("/getHobbies")
 def getHobbies():
+    if "username" not in session:
+        return redirect(url_for("login"))
     username = request.args["user"]
     hobbies = db.get_profile(username)["hobbies"]
     return hobbies
@@ -112,8 +125,25 @@ def home():
     '''Get home page'''
     if "username" not in session:
         return redirect(url_for("login"))
-    return render_template("home.html")
+    hobbies = list(map(lambda hobby: hobby.strip(), db.get_profile(session["username"])["hobbies"].split(",")))
+    friends = []
+    for hobby in hobbies:
+        friends += db.find_friends(session["username"], hobby)
+    print(friends)
+    return render_template("home.html", username=session["username"])
 
+@app.route("/getFriends")
+def getFriends():
+    username = request.args["username"]
+    hobbies = list(map(lambda hobby: hobby.strip(), db.get_profile(username)["hobbies"].split(",")))
+    count = 0
+    friends = {}
+    for hobby in hobbies:
+        friends[str(count)] = db.find_friends(username, hobby)
+        count += 1
+    friends = json.dumps(friends)
+    friends = json.loads(friends)
+    return friends
 
 @app.route("/logout")
 def logout():
