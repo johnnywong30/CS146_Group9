@@ -30,6 +30,8 @@
       <label for="email">Email</label>
       <input id="email" type="email" name="email" placeholder="peanuts@nuts.com">
 
+      <label for="phone">Phone Number</label>
+      <input id="phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" placeholder="800-420-6921">
       Social Handles
       <button type="button" class="adder" id="socialAdder">➕</button>
 
@@ -37,14 +39,15 @@
 
       </div>
 
-      <label for="phone">Phone Number</label>
-      <input id="phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" placeholder="800-420-6921">
       Hobbies
       <button type="button" class="adder" id="hobbyAdder">➕</button>
 
       <div id="hobby-container">
 
       </div>
+      <label for="description">Description</label>
+      <textarea id="description" name="description" placeholder="18...Male...&#10;Single...Lonely..."></textarea>
+
 
       <button type="submit" name="submit" value="Register">Register</button>
       <a href="/">Already have an account?</a>

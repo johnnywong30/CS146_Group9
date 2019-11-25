@@ -16,7 +16,7 @@ def create_db():
 
     # replace these executes depending on necessary tables
     c.execute("CREATE TABLE IF NOT EXISTS users (username TEXT PRIMARY KEY, password TEXT)")
-    c.execute("CREATE TABLE IF NOT EXISTS profiles (username TEXT PRIMARY KEY, hobbies TEXT, email TEXT, socials TEXT, phone TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS profiles (username TEXT PRIMARY KEY, hobbies TEXT, email TEXT, socials TEXT, phone TEXT, description TEXT)")
 
     db.close()
     return True
@@ -72,8 +72,8 @@ def verify_user(username, password):
         return True
     return False
 
-def add_profile(username, hobbies, email = "", socials = "", phone = ""):
-    '''Adds profile to database. email, socials, and phone are optional parameters.'''
+def add_profile(username, hobbies, email = "", socials = "", phone = "", description = ""):
+    '''Adds profile to database. email, socials, phone, and description are optional parameters.'''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
@@ -82,7 +82,8 @@ def add_profile(username, hobbies, email = "", socials = "", phone = ""):
     print(email)
     print(socials)
     print(phone)
-    c.execute('INSERT INTO profiles VALUES (?, ?, ?, ?, ?)', (username, hobbies, email, socials, phone))
+    print(description)
+    c.execute('INSERT INTO profiles VALUES (?, ?, ?, ?, ?, ?)', (username, hobbies, email, socials, phone, description,))
 
     db.commit()
     db.close()
@@ -93,7 +94,7 @@ def get_profile(username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute('SELECT username, hobbies, email, socials, phone FROM profiles where username=?', (username,))
+    c.execute('SELECT username, hobbies, email, socials, phone, description FROM profiles where username=?', (username,))
 
     selectedVal = c.fetchone()
     db.close()
@@ -104,6 +105,8 @@ def get_profile(username):
     profile['email'] = selectedVal[2]
     profile['socials'] = selectedVal[3]
     profile['phone'] = selectedVal[4]
+    profile['description'] = selectedVal[5]
+    print(profile["description"].split())
     return profile
 
 def find_friends(username, hobby):
@@ -112,7 +115,7 @@ def find_friends(username, hobby):
     c = db.cursor()
 
     query = '%' + hobby + '%'   # check if hobby is anywhere in the hobbies string on lookup
-    c.execute('SELECT username, hobbies, email, socials, phone FROM profiles where hobbies LIKE ? AND username != ?', (query, username,))
+    c.execute('SELECT username, hobbies, email, socials, phone, description FROM profiles where hobbies LIKE ? AND username != ?', (query, username,))
     selectedVal = c.fetchall()
     db.close()
     return selectedVal

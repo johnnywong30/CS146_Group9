@@ -66,6 +66,8 @@ def auth():
         media = request.form.getlist("platform")
         handles = list(map(lambda handle: handle.strip(), request.form.getlist("socials")))
         email, phone = request.form["email"].strip(), request.form["phone"].strip()
+        description = request.form["description"]
+        print(description)
         strOfHobbies = ""
         for hobby in hobbies:
             strOfHobbies += hobby + ","
@@ -74,7 +76,7 @@ def auth():
         for i in range(len(handles)):
             strOfSocials += media[i] + ":"
             strOfSocials += handles[i] + ","
-        db.add_profile(username, strOfHobbies, email, strOfSocials, phone)
+        db.add_profile(username, strOfHobbies, email, strOfSocials, phone, description)
         db.register_user(username, password)
         flash("{} has been registered".format(username))
     return redirect(url_for("login"))
@@ -89,8 +91,9 @@ def profile():
     username = session["username"]
     email = profileInfo["email"] if profileInfo["email"] != "" else "N/A 🥺"
     phone = profileInfo["phone"] if profileInfo["phone"] != "" else "N/A 🥺"
+    description = profileInfo["description"] if profileInfo["description"] != "" else "N/A 🥺"
 
-    return render_template("profile.html", username=username, email=email, phone=phone)
+    return render_template("profile.html", username=username, email=email, phone=phone, description=description)
 
 @app.route("/friendProfile")
 def friendProfile():
@@ -100,7 +103,8 @@ def friendProfile():
     profileInfo = db.get_profile(username)
     email = profileInfo["email"] if profileInfo["email"] != "" else "N/A 🥺"
     phone = profileInfo["phone"] if profileInfo["phone"] != "" else "N/A 🥺"
-    return render_template("profile.html", username=username, email=email, phone=phone)
+    description = profileInfo["description"] if profileInfo["description"] != "" else "N/A 🥺"
+    return render_template("profile.html", username=username, email=email, phone=phone, description=description)
 
 
 @app.route("/getSocials")

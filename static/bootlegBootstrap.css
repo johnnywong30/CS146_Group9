@@ -277,8 +277,8 @@ a:hover{
   border: 0;
   border-radius: 100px;
 }
-.profile-info{
-
+.profile-description{
+  text-align: center;
 }
 
 .profile-contacts{
