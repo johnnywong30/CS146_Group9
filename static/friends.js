@@ -38,6 +38,10 @@ let createFriend = function(username, listOfHobbies){
   let profileButton = document.createElement("button");
   profileButton.setAttribute("class", "btn btn--block");
   profileButton.innerText = "Go to Profile";
+  profileButton.addEventListener("click", function(){
+    window.open("/friendProfile?username=" + username, "_self");
+  })
+
 
   content.appendChild(title);
   content.appendChild(heading);
@@ -52,36 +56,36 @@ let createFriend = function(username, listOfHobbies){
 
 let findFriends = function(){
   let xhttp = new XMLHttpRequest();
+  let friends = []
+  let friendHobbies = []
   xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           response = JSON.parse(this.responseText);
           console.log(response);
           console.log(Object.keys(response).length);
+
           for (var key in Object.keys(response)){
-            if (key == "6"){
-              break;
+            let hobby = response[key];
+            for (var friend in hobby){
+              let currFriend = hobby[friend];
+              if (!(friends.includes(currFriend[0]))){
+                friends.push(currFriend[0]);
+                friendHobbies.push(currFriend[1].split(","));
+              }
             }
-            let friend = response[key][0];
-            let name = friend[0];
-            let hobbyList = friend[1].split(",");
-            console.log(name);
-            console.log(hobbyList);
-            createFriend(name, hobbyList);
-            addProfileLinks(name);
+          }
+
+          console.log(friends);
+          console.log(friendHobbies);
+
+          for (friend in friends){
+            console.log(friend);
+            createFriend(friends[friend], friendHobbies[friend]);
           }
         }
     };
   xhttp.open("GET", "/getFriends?username=" + username, true);
   xhttp.send();
-}
-
-let addProfileLinks = function(username){
-  let profileButtons = document.getElementsByClassName("btn btn--block");
-  for (button in profileButtons){
-    profileButtons[button].addEventListener("click", function(){
-      window.open("/friendProfile?username=" + username, "_self");
-    });
-  }
 }
 
 findFriends();
